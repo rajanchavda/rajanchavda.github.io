@@ -32,11 +32,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <!-- GSAP TextPlugin -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
+  <!-- GSAP ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   
   <!-- JS Script (Deferred) -->
   <script src="index.js" defer></script>
 </head>
 <body>
+
+  <!-- Custom Interactive Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
 
   <!-- Navigation Bar -->
   <header class="navbar" id="navbar">
@@ -82,6 +87,7 @@
       <!-- Layer 1: Background Mesh & Grid (Moves slowest) -->
       <div class="parallax-layer layer-bg" data-speed="0.1">
         <div class="grid-mesh"></div>
+        <canvas id="hero-canvas"></canvas>
       </div>
       
       <!-- Layer 2: Glowing Ambient Circles (Moves medium-slow) -->

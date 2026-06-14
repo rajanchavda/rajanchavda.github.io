@@ -85,27 +85,83 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     SCROLL REVEAL (INTERSECTION OBSERVER)
+     SCROLL REVEAL (FALLBACK & GSAP INTEGRATION)
      ========================================================================== */
-  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  // Target all items we want to reveal on scroll
+  const revealElements = document.querySelectorAll(
+    '.reveal-on-scroll, .section-header, .about-visual-col, .about-content-col, .skills-category-card'
+  );
   
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        // Unobserve once revealed to keep animations static
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    root: null,
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px' // Trigger slightly before element reaches viewport center
-  });
-  
+  // Add base class dynamically so they remain visible if JS is disabled
   revealElements.forEach(el => {
-    revealObserver.observe(el);
+    el.classList.add('reveal-on-scroll');
   });
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (prefersReducedMotion || typeof gsap === 'undefined') {
+    // Fallback CSS-based reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+  } else {
+    // GSAP-based reveal: disables CSS transitions during animation to avoid inline collisions
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          
+          el.style.transition = 'none';
+          el.classList.add('revealed');
+          
+          let startX = 0;
+          let startY = 35;
+          
+          // Apply directional slide-ins based on column layout
+          if (el.classList.contains('about-visual-col')) {
+            startX = -40;
+            startY = 0;
+          } else if (el.classList.contains('about-content-col')) {
+            startX = 40;
+            startY = 0;
+          }
+          
+          gsap.from(el, {
+            x: startX,
+            y: startY,
+            opacity: 0,
+            scale: el.classList.contains('skills-category-card') ? 0.96 : 1,
+            duration: 0.8,
+            ease: 'power2.out',
+            clearProps: 'transition'
+          });
+          
+          revealObserver.unobserve(el);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+  }
 
   /* ==========================================================================
      PROJECTS FILTERING
@@ -190,23 +246,55 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCopy(copyPhoneBtn, 'Phone Number');
 
   /* ==========================================================================
-     THEME TOGGLE (LIGHT / DARK)
+     THEME TOGGLE (LIGHT / DARK) WITH VIEW TRANSITIONS
      ========================================================================== */
   const themeToggle = document.getElementById('theme-toggle');
   
   if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
+    themeToggle.addEventListener('click', (e) => {
       const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
       
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
+      const changeThemeData = () => {
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+        if (metaColorScheme) {
+          metaColorScheme.content = newTheme;
+        }
+      };
       
-      // Update color scheme meta tag
-      const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
-      if (metaColorScheme) {
-        metaColorScheme.content = newTheme;
+      if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        changeThemeData();
+        return;
       }
+      
+      const x = e.clientX;
+      const y = e.clientY;
+      
+      const endRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+      
+      const transition = document.startViewTransition(changeThemeData);
+      
+      transition.ready.then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${endRadius}px at ${x}px ${y}px)`
+            ]
+          },
+          {
+            duration: 500,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            pseudoElement: '::view-transition-new(root)'
+          }
+        );
+      });
     });
   }
 
@@ -214,11 +302,172 @@ document.addEventListener('DOMContentLoaded', () => {
      GSAP INTERACTIVE HERO PARALLAX & ENTRANCE ANIMATIONS
      ========================================================================== */
   if (typeof gsap !== 'undefined') {
-    // Register GSAP TextPlugin
-    gsap.registerPlugin(TextPlugin);
+    // Register GSAP TextPlugin & ScrollTrigger safely
+    if (typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(TextPlugin, ScrollTrigger);
+    } else {
+      gsap.registerPlugin(TextPlugin);
+    }
     
     // Check for prefers-reduced-motion setting
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // A. Custom Damped Cursor Movement (Desktop Only)
+    const cursor = document.getElementById('custom-cursor');
+    if (cursor && !prefersReducedMotion) {
+      let cursorPos = { x: 0, y: 0 };
+      let mousePos = { x: 0, y: 0 };
+      
+      window.addEventListener('mousemove', (e) => {
+        mousePos.x = e.clientX;
+        mousePos.y = e.clientY;
+        cursor.classList.add('active');
+      });
+      
+      document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+      });
+      
+      document.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+      });
+      
+      // GSAP Ticker for smooth damping
+      gsap.ticker.add(() => {
+        const dt = 1.0 - Math.pow(1.0 - 0.15, gsap.ticker.deltaRatio());
+        cursorPos.x += (mousePos.x - cursorPos.x) * dt;
+        cursorPos.y += (mousePos.y - cursorPos.y) * dt;
+        
+        gsap.set(cursor, {
+          x: cursorPos.x,
+          y: cursorPos.y
+        });
+      });
+      
+      // Magnetic snappings and scale changes
+      const hoverSelector = 'a, button, .project-card, .skills-category-card, .award-card, .contact-item, .theme-toggle, .mobile-nav-toggle';
+      document.querySelectorAll(hoverSelector).forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.classList.add('hovered');
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hovered');
+        });
+      });
+    }
+
+    // B. Hero Canvas Particle Backdrop
+    const canvas = document.getElementById('hero-canvas');
+    if (canvas && !prefersReducedMotion) {
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const maxParticles = 65;
+      let width = canvas.width = canvas.offsetWidth;
+      let height = canvas.height = canvas.offsetHeight;
+      
+      const mouse = { x: null, y: null, radius: 150 };
+      
+      const handleResize = () => {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      };
+      window.addEventListener('resize', handleResize);
+      
+      const heroSection = document.getElementById('home');
+      if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        });
+        
+        heroSection.addEventListener('mouseleave', () => {
+          mouse.x = null;
+          mouse.y = null;
+        });
+      }
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.35;
+          this.vy = (Math.random() - 0.5) * 0.35;
+          this.radius = Math.random() * 2 + 1;
+        }
+        
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          
+          if (this.x < 0 || this.x > width) this.vx = -this.vx;
+          if (this.y < 0 || this.y > height) this.vy = -this.vy;
+          
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.hypot(dx, dy);
+            
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              this.x += (dx / dist) * force * 0.4;
+              this.y += (dy / dist) * force * 0.4;
+            }
+          }
+        }
+        
+        draw() {
+          const isLightMode = document.documentElement.getAttribute('data-theme') === 'light';
+          ctx.fillStyle = isLightMode ? 'rgba(14, 116, 144, 0.25)' : 'rgba(0, 242, 254, 0.35)';
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      
+      const initParticles = () => {
+        particles = [];
+        for (let i = 0; i < maxParticles; i++) {
+          particles.push(new Particle());
+        }
+      };
+      initParticles();
+      
+      const drawLines = () => {
+        const isLightMode = document.documentElement.getAttribute('data-theme') === 'light';
+        const lineColor = isLightMode ? '14, 116, 144' : '0, 242, 254';
+        
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.hypot(dx, dy);
+            
+            if (dist < 100) {
+              const opacity = ((100 - dist) / 100) * 0.12;
+              ctx.strokeStyle = `rgba(${lineColor}, ${opacity})`;
+              ctx.lineWidth = 0.6;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      };
+      
+      const animateParticles = () => {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        drawLines();
+        requestAnimationFrame(animateParticles);
+      };
+      
+      animateParticles();
+    }
 
     if (!prefersReducedMotion) {
       // 1. Hero Entrance Animation Sequence
