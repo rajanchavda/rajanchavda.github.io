@@ -214,6 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
      GSAP INTERACTIVE HERO PARALLAX & ENTRANCE ANIMATIONS
      ========================================================================== */
   if (typeof gsap !== 'undefined') {
+    // Register GSAP TextPlugin
+    gsap.registerPlugin(TextPlugin);
+    
     // Check for prefers-reduced-motion setting
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -350,6 +353,48 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.project-card, .skills-category-card, .award-card').forEach(card => {
         applyTilt(card, 8);
       });
+      
+      // 5. Typewriter Subtitle Rotation (GSAP TextPlugin)
+      const subtitleEl = document.getElementById('rotating-subtitle');
+      if (subtitleEl) {
+        const titles = [
+          'Team Lead & Senior Frontend Engineer',
+          'Advanced Angular & React Developer',
+          'Web Performance & INP Optimizer',
+          'Technical Mentor & Scrum Leader'
+        ];
+        let currentIndex = 0;
+        
+        const rotateText = () => {
+          const nextIndex = (currentIndex + 1) % titles.length;
+          const targetText = titles[nextIndex];
+          
+          const tl = gsap.timeline({
+            onComplete: () => {
+              currentIndex = nextIndex;
+              setTimeout(rotateText, 4000);
+            }
+          });
+          
+          // Backspace current text
+          tl.to(subtitleEl, {
+            duration: subtitleEl.innerText.length * 0.015,
+            text: '',
+            ease: 'none'
+          })
+          // Pause slightly
+          .to({}, { duration: 0.15 })
+          // Type new text
+          .to(subtitleEl, {
+            duration: targetText.length * 0.035,
+            text: targetText,
+            ease: 'none'
+          });
+        };
+        
+        // Start cycle after entrance timeline finishes
+        setTimeout(rotateText, 4000);
+      }
     }
   }
 
