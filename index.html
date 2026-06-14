@@ -1,604 +1,659 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Rajan Chavda - Profile</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="A portfolio website of Rajan Chavda" />
-	<meta name="keywords" content="portfolio, Rajan Chavda, Software developer, frontend developer, web, UI, Engineer, India" />
-	<meta name="author" content="Rajan Chavda" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Rajan Chavda, a Team Lead & Senior Frontend Engineer with 7+ years of experience building scalable web applications using Angular, React, Next.js, and Node.js.">
+  <meta name="author" content="Rajan Chavda">
+  <meta name="keywords" content="Rajan Chavda, Frontend Developer, Team Lead, Web Developer, Angular, React, NextJS, NodeJS, Ahmedabad, Portfolio">
+  
+  <title>Rajan Chavda | Team Lead - Frontend & Senior Software Engineer</title>
+  
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Theme Color and FOUC Prevention Script -->
+  <meta name="color-scheme" content="dark">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      const meta = document.querySelector('meta[name="color-scheme"]');
+      if (meta) meta.content = theme;
+    })();
+  </script>
+  
+  <!-- GSAP Core Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  
+  <!-- JS Script (Deferred) -->
+  <script src="index.js" defer></script>
+</head>
+<body>
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="Rajan Chavda - Profile"/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content="A portfolio website of Rajan Chavda"/>
-	<meta name="twitter:title" content="Rajan Chavda - Profile" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo" id="nav-logo">Rajan<span>.dev</span></a>
+      <nav class="nav-links" id="nav-links-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#awards" class="nav-link">Awards</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" id="mobile-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Parallax Hero Section -->
+  <section class="hero-parallax-wrapper" id="home">
+    <div class="hero-parallax">
+      <!-- Layer 1: Background Mesh & Grid (Moves slowest) -->
+      <div class="parallax-layer layer-bg" data-speed="0.1">
+        <div class="grid-mesh"></div>
+      </div>
+      
+      <!-- Layer 2: Glowing Ambient Circles (Moves medium-slow) -->
+      <div class="parallax-layer layer-glow" data-speed="0.3">
+        <div class="glow-circle glow-cyan"></div>
+        <div class="glow-circle glow-purple"></div>
+      </div>
+      
+      <!-- Layer 3: Main Text Content & CTA (Moves at normal scroll rate) -->
+      <div class="parallax-layer layer-content" data-speed="0.5">
+        <div class="hero-text-container">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Available for Frontend Leadership Roles
+          </div>
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Rajan Chavda</span>
+          </h1>
+          <h2 class="hero-subtitle">Team Lead & Senior Frontend Engineer</h2>
+          <p class="hero-description">
+            Building high-performance, accessible, and scalable web applications with over 7 years of expertise. Specializing in advanced Angular, React, Next.js, and modern frontend architecture.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-glow">
+              <span>View Projects</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Get In Touch</span>
+            </a>
+          </div>
+        </div>
+      </div>
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+      <!-- Layer 4: Foreground Floating Tech Elements (Moves faster) -->
+      <div class="parallax-layer layer-foreground" data-speed="0.8">
+        <div class="floating-tech-card tech-angular">
+          <svg viewBox="0 0 24 24" class="tech-icon"><path fill="#dd0031" d="M12 2L2 5.6v5.8c0 6.2 4.2 11.2 10 12.6 5.8-1.4 10-6.4 10-12.6V5.6L12 2zm0 3.3l5.5 12.2h-2.1l-1.3-3.3H9.9l-1.3 3.3H6.5L12 5.3zm1.6 7L12 8.7l-1.6 3.6h3.2z"/></svg>
+          <span>Angular 22</span>
+        </div>
+        <div class="floating-tech-card tech-react">
+          <svg viewBox="0 0 24 24" class="tech-icon"><path fill="#00d8ff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 11h-9c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h9c.28 0 .5.22.5.5s-.22.5-.5.5zm0-2h-9c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h9c.28 0 .5.22.5.5s-.22.5-.5.5z"/></svg>
+          <span>React & Next</span>
+        </div>
+        <div class="floating-tech-card tech-ts">
+          <svg viewBox="0 0 24 24" class="tech-icon"><path fill="#3178c6" d="M1.04 0h21.92c.57 0 1.04.47 1.04 1.04v21.92c0 .57-.47 1.04-1.04 1.04H1.04C.47 24 0 23.53 0 22.96V1.04C0 .47.47 0 1.04 0zm19.34 18.01c-.13-.3-.43-.5-.77-.5h-2.31c-.32 0-.6.18-.73.47l-.9 1.98h-2.92l3.41-7.14c.15-.31.47-.51.81-.51h2.46c.34 0 .66.2.81.51l3.41 7.14h-2.92l-.9-1.98zm-2.03-4.43l-1.09 2.4h2.18l-1.09-2.4zM4.1 6.54h8.34V8.9H9.42v10.51H6.9V8.9H4.1V6.54z"/></svg>
+          <span>TypeScript</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-scroll-indicator">
+      <span class="scroll-mouse">
+        <span class="scroll-wheel"></span>
+      </span>
+      <span class="scroll-text">Scroll to explore</span>
+    </div>
+  </section>
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+  <!-- Main Content Area -->
+  <main>
+    
+    <!-- About Section -->
+    <section id="about" class="section-about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Who I Am</span>
+          <h2 class="section-title">About Me</h2>
+          <div class="section-underline"></div>
+        </div>
+        
+        <div class="about-grid">
+          <!-- Left: Avatar Card -->
+          <div class="about-visual-col">
+            <div class="avatar-glass-card">
+              <div class="avatar-container">
+                <img src="profile_avatar.png" alt="Rajan Chavda Profile Avatar" class="avatar-image" loading="lazy">
+              </div>
+              <div class="avatar-info">
+                <h3>Rajan Chavda</h3>
+                <p>Team Lead - Frontend</p>
+                <div class="avatar-socials">
+                  <a href="https://linkedin.com/in/rajan-chavda" target="_blank" aria-label="LinkedIn Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  </a>
+                  <a href="mailto:rajan.chavda1@gmail.com" aria-label="Email Contact">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quick Highlight Cards -->
+            <div class="highlights-grid">
+              <div class="highlight-card">
+                <span class="highlight-number">7+</span>
+                <span class="highlight-text">Years Experience</span>
+              </div>
+              <div class="highlight-card">
+                <span class="highlight-number">20+</span>
+                <span class="highlight-text">Apps Optimized</span>
+              </div>
+              <div class="highlight-card">
+                <span class="highlight-number">2</span>
+                <span class="highlight-text">Industry Awards</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right: Biography & Overview -->
+          <div class="about-content-col">
+            <h3 class="about-greeting">Driving modern frontend architectures and high-performing development teams.</h3>
+            <p class="about-text">
+              I am a passionate <strong>Senior Software Engineer & Team Lead</strong> specializing in frontend technologies. Over the past 7+ years, I have engineered micro-frontend architectures, led major framework migrations (such as upgrading complex Angular platforms from v10 to v22), and delivered offline-first PWAs with automated syncing capabilities.
+            </p>
+            <p class="about-text">
+              My core philosophy centers around web performance (optimizing LCP/INP by up to 50%), solid search engine optimization (SEO), web accessibility (a11y), and clean, reusable codebases. I excel at mentoring developers, translating business requirements into tech architectures, and establishing robust PR review and testing practices.
+            </p>
+            
+            <div class="bio-details">
+              <div class="detail-item">
+                <span class="detail-label">Location:</span>
+                <span class="detail-val">Ahmedabad, Gujarat, India</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Education:</span>
+                <span class="detail-val">B.E. Computer Engineering (L.D. College of Engineering)</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Management Style:</span>
+                <span class="detail-val">Agile Scrum, Technical Mentorship, High-Standards PRs</span>
+              </div>
+            </div>
+            
+            <div class="about-cta-container">
+              <a href="#experience" class="btn btn-secondary btn-icon">
+                <span>View My Journey</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	</head>
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">	
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(images/cover_bg_3.jpg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<div class="profile-thumb" style="background: url(images/rajan.jpg);"></div>
-							<h1><span>Rajan Chavda</span></h1>
-							<h3><span>Senior Software Engineer</span></h3>
-							<p>
-								<ul class="fh5co-social-icons">
-									<li><a href="https://www.linkedin.com/in/rajan-chavda/" target="_blank"><i class="icon-linkedin2"></i></a></li>
-									<li><a href="https://twitter.com/rajandchavda" target="_blank"><i class="icon-twitter2"></i></a></li>
-									<li><a href="https://instagram.com/rajan_chavda_" target="_blank"><i class="icon-instagram2"></i></a></li>
-								</ul>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+    <!-- Skills Section -->
+    <section id="skills" class="section-skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">My Toolbox</span>
+          <h2 class="section-title">Technical Expertise</h2>
+          <div class="section-underline"></div>
+        </div>
+        
+        <div class="skills-grid">
+          <!-- Card 1: Frontend Technologies -->
+          <div class="skills-category-card">
+            <div class="category-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3>Front End</h3>
+            <div class="skills-list">
+              <div class="skill-tag">Angular 2+ / 22</div>
+              <div class="skill-tag">React / Next.js</div>
+              <div class="skill-tag">TypeScript</div>
+              <div class="skill-tag">RxJS</div>
+              <div class="skill-tag">Redux / State Mgmt</div>
+              <div class="skill-tag">PWA (Offline-First)</div>
+              <div class="skill-tag">HTML5 & CSS3 / SCSS</div>
+              <div class="skill-tag">Responsive Web Design</div>
+              <div class="skill-tag">SSR (Server-Side Render)</div>
+              <div class="skill-tag">SEO & Performance (LCP)</div>
+            </div>
+          </div>
+          
+          <!-- Card 2: Backend & Cloud -->
+          <div class="skills-category-card">
+            <div class="category-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V12C3 13.66 7.03 15 12 15C16.97 15 21 13.66 21 12V5"></path><path d="M3 12V19C3 20.66 7.03 22 12 22C16.97 22 21 20.66 21 19V12"></path></svg>
+            </div>
+            <h3>Backend & Cloud</h3>
+            <div class="skills-list">
+              <div class="skill-tag">NodeJS / Express</div>
+              <div class="skill-tag">Microservices</div>
+              <div class="skill-tag">AWS (EC2, S3, VPC)</div>
+              <div class="skill-tag">AWS CDN / CloudFront</div>
+              <div class="skill-tag">AWS CloudWatch</div>
+              <div class="skill-tag">MongoDB</div>
+              <div class="skill-tag">PostgreSQL</div>
+              <div class="skill-tag">MySQL</div>
+              <div class="skill-tag">GCP (Google Cloud)</div>
+            </div>
+          </div>
+          
+          <!-- Card 3: Library Integrations & Management -->
+          <div class="skills-category-card">
+            <div class="category-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+            <h3>Libraries & Methodologies</h3>
+            <div class="skills-list">
+              <div class="skill-tag">ArcGIS Maps</div>
+              <div class="skill-tag">Apex Charts & Chart.js</div>
+              <div class="skill-tag">FullCalendar</div>
+              <div class="skill-tag">SignalR (Websockets)</div>
+              <div class="skill-tag">Material UI / Bootstrap</div>
+              <div class="skill-tag">JQuery</div>
+              <div class="skill-tag">Scrum / Agile Lead</div>
+              <div class="skill-tag">Jira / Project Tracking</div>
+              <div class="skill-tag">Git / PR Workflows</div>
+              <div class="skill-tag">Unit Testing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	<div id="fh5co-about" class="animate-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>About Me</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<ul class="info">
-						<li><span class="first-block">Full Name:</span><span class="second-block">Rajan Chavda</span></li>
-						<li><span class="first-block">Phone:</span><span class="second-block">+91 99245 09702</span></li>
-						<li><span class="first-block">Email:</span><span class="second-block">rajan.chavda1@gmail.com</span></li>
-						<!-- <li><span class="first-block">Website:</span><span class="second-block">www.yoursite.com</span></li> -->
-						<li><span class="first-block">Address:</span><span class="second-block">Gujarat, India</span></li>
-					</ul>
-				</div>
-				<div class="col-md-8">
-					<h2>Hello World!</h2>
-					<p>"Welcome to my digital realm! I'm a passionate software developer with a knack for turning lines of code into innovative solutions. With a love for problem-solving and an insatiable curiosity, I thrive on creating elegant and efficient software that empowers and delights users. Join me on this journey as I explore the ever-evolving world of technology, share my insights, and showcase my latest projects. Let's dive into the world of code and creativity together!"</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="https://www.linkedin.com/in/rajan-chavda/" target="_blank"><i class="icon-linkedin2"></i></a></li>
-							<li><a href="https://twitter.com/rajandchavda" target="_blank"><i class="icon-twitter2"></i></a></li>
-							<li><a href="https://instagram.com/rajan_chavda_" target="_blank"><i class="icon-instagram2"></i></a></li>
-						</ul>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Experience Section -->
+    <section id="experience" class="section-experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Professional Path</span>
+          <h2 class="section-title">Work Experience</h2>
+          <div class="section-underline"></div>
+        </div>
+        
+        <div class="timeline">
+          <!-- Experience Item 1 -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Nov 2023 – Present</div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Team Lead</h3>
+                <span class="timeline-company">ARInspect (Tyler Technologies)</span>
+              </div>
+              <span class="timeline-location">Ahmedabad, Gujarat (Hybrid)</span>
+              <ul class="timeline-bullets">
+                <li>Led development of a high-concurrency multi-tenant inspection platform using Angular and Node.js.</li>
+                <li>Orchestrated framework upgrades from Angular v10 to v22, achieving significant gains in codebase maintainability and reducing initial load time.</li>
+                <li>Improved runtime application performance by 50% via optimized reactive logic (RxJS) and component rendering structures.</li>
+                <li>Designed and implemented an offline-first Progressive Web App (PWA) equipped with secure auto-syncing background tasks.</li>
+                <li>Established strict peer code reviews, CI linting, and automated unit testing to minimize production defects.</li>
+                <li>Architected secure, local LLM agent workflows using custom MCP (Model Context Protocol) servers integrated with n8n.</li>
+                <li>Mentored junior frontend developers, facilitating career path growth and aligning engineering goals with product scope.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Experience Item 2 -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Jan 2020 – Oct 2023</div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Sr. Software Developer</h3>
+                <span class="timeline-company">Aubergine Solutions</span>
+              </div>
+              <span class="timeline-location">Ahmedabad, Gujarat, India</span>
+              <ul class="timeline-bullets">
+                <li>Served as frontend architect for several large-scale Angular client applications.</li>
+                <li>Scouted and estimated complex user stories, helping project managers establish precise roadmap milestones.</li>
+                <li>Engineered scalable, themeable UI component libraries utilizing Angular, RxJS, and clean SCSS methodologies.</li>
+                <li>Enforced modern SEO standards, web accessibility guidelines (WCAG), and bundle size optimization strategies.</li>
+                <li>Delivered high-priority user stories consistently within fast-paced 2-week Agile Scrum sprints.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Experience Item 3 -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Jul 2018 – Jan 2020</div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Software Engineer</h3>
+                <span class="timeline-company">Future Group</span>
+              </div>
+              <span class="timeline-location">Ahmedabad, Gujarat, India</span>
+              <ul class="timeline-bullets">
+                <li>Developed internal web utilities and automation scripting tools for web and mobile platforms.</li>
+                <li>Conducted load and API performance testing leveraging JMeter to isolate latency bottlenecks.</li>
+                <li>Wrote extensive test coverages, elevating frontend testing suites and app stability margins.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	<div id="fh5co-resume" class="fh5co-bg-color">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>My Resume</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<ul class="timeline">
-						<li class="timeline-heading text-center animate-box">
-							<div><h3>Work Experience</h3></div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Senior Software Engineer</h3>
-									<span class="company">Tyler Technologies - 2023 - Current</span>
-								</div>
-								<!-- <div class="timeline-body">
-									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div> -->
-							</div>
-						</li>
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Senior Software Engineer</h3>
-									<span class="company">Aubergine Solutions Pvt Ltd - 2020 - 2023</span>
-								</div>
-								<!-- <div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div> -->
-							</div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Software Engineer</h3>
-									<span class="company">Future Group - 2018 - 2020</span>
-								</div>
-								<!-- <div class="timeline-body">
-									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div> -->
-							</div>
-						</li>
+    <!-- Projects Section -->
+    <section id="projects" class="section-projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Portfolio Highlights</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="section-underline"></div>
+        </div>
+        
+        <!-- Filter Controls -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="angular">Angular</button>
+          <button class="filter-btn" data-filter="react">React / Next</button>
+          <button class="filter-btn" data-filter="node">Fullstack / Node</button>
+        </div>
+        
+        <div class="projects-grid">
+          <!-- Project 1: Motorbuddy -->
+          <div class="project-card reveal-on-scroll" data-tech="react node">
+            <div class="project-card-header">
+              <span class="project-badge">Founder / Solo Dev</span>
+              <span class="project-date">2025 - Present</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Motorbuddy</h3>
+              <p class="project-desc">
+                A modern vehicle management platform designed to monitor car services, maintenance alerts, mileage logging, and ownership expenses. Integrated family vehicle sharing, notification tasks, and an interactive AI assistant.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">PostgreSQL</span>
+                <span class="tech-badge">GCP</span>
+                <span class="tech-badge">Express</span>
+                <span class="tech-badge">AI Assistant</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 2: ARInspect Platform -->
+          <div class="project-card reveal-on-scroll" data-tech="angular node">
+            <div class="project-card-header">
+              <span class="project-badge">Lead Developer</span>
+              <span class="project-date">2023 - Present</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">ARInspect</h3>
+              <p class="project-desc">
+                A enterprise-grade inspection platform that runs offline-first for field inspectors. Features smart synchronizing, real-time dispatch, spatial data maps, and strict performance targets.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-badge">Angular 22</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">RxJS</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">PWA</span>
+                <span class="tech-badge">Material UI</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 3: Emergency Incident Simulator -->
+          <div class="project-card reveal-on-scroll" data-tech="angular">
+            <div class="project-card-header">
+              <span class="project-badge">Lead Frontend</span>
+              <span class="project-date">2021 - 2023</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Emergency Incident Simulator</h3>
+              <p class="project-desc">
+                A real-time geospatial emergency simulation dashboard handling huge datasets. Includes client-side PDF export, dynamic charting widgets, and low-latency SignalR event sockets.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-badge">Angular 14</span>
+                <span class="tech-badge">ArcGIS Maps</span>
+                <span class="tech-badge">ApexCharts</span>
+                <span class="tech-badge">SignalR</span>
+                <span class="tech-badge">WebSockets</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 4: Freshment -->
+          <div class="project-card reveal-on-scroll" data-tech="react">
+            <div class="project-card-header">
+              <span class="project-badge">Frontend Dev</span>
+              <span class="project-date">2022 - 2023</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Freshment</h3>
+              <p class="project-desc">
+                A performance-focused job search portal optimized for quick response times and SEO visibility. Features pre-fetched query states and state caching for slick user navigations.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">NextJS</span>
+                <span class="tech-badge">React Query</span>
+                <span class="tech-badge">TailwindCSS</span>
+                <span class="tech-badge">TypeScript</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 5: IDHub -->
+          <div class="project-card reveal-on-scroll" data-tech="angular">
+            <div class="project-card-header">
+              <span class="project-badge">Frontend Dev</span>
+              <span class="project-date">2020 - 2021</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">IDHub</h3>
+              <p class="project-desc">
+                An advanced web form builder application allowing non-tech users to configure complex document flows, conditional logical queries, and multi-step custom wizard screens.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-badge">Angular 8</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">Material UI</span>
+                <span class="tech-badge">Reactive Forms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Awards & Certificates Section -->
+    <section id="awards" class="section-awards">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Recognitions</span>
+          <h2 class="section-title">Awards & Certifications</h2>
+          <div class="section-underline"></div>
+        </div>
+        
+        <div class="awards-grid">
+          <!-- Award 1 -->
+          <div class="award-card reveal-on-scroll">
+            <div class="award-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3>Prodigy Award</h3>
+            <span class="award-org">ARInspect (Tyler Technologies)</span>
+            <span class="award-date">Feb 2024</span>
+            <p>Conferred for outstanding dedication, technical leadership, and driving major frontend performance milestones.</p>
+          </div>
+          
+          <!-- Award 2 -->
+          <div class="award-card reveal-on-scroll">
+            <div class="award-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3>Excellerator</h3>
+            <span class="award-org">Aubergine Solutions</span>
+            <span class="award-date">2022</span>
+            <p>Awarded in recognition of excellent team contribution, project delivery excellence, and mentoring standardizations.</p>
+          </div>
+          
+          <!-- Certificate 1 -->
+          <div class="award-card reveal-on-scroll">
+            <div class="award-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Scrum Master (PSM-I)</h3>
+            <span class="award-org">Scrum.org</span>
+            <span class="award-date">Professional Certification</span>
+            <p>Demonstrated mastery of the Scrum framework, Agile values, and collaborative product release management.</p>
+          </div>
+          
+          <!-- Certificate 2 -->
+          <div class="award-card reveal-on-scroll">
+            <div class="award-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>AWS Cloud Practitioner</h3>
+            <span class="award-org">Amazon Web Services (AWS)</span>
+            <span class="award-date">AWS Essentials Certification</span>
+            <p>Certified in AWS cloud concepts, security compliance, architecture designs, billing services, and core compute engines.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-						<br>
-						<li class="timeline-heading text-center animate-box">
-							<div><h3>Education</h3></div>
-						</li>
-						<li class="timeline-unverted animate-box">
-							<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Bachelors in Computer Engineering</h3>
-									<span class="company">LD College of Engineering - 2014 - 2018</span>
-								</div>
-								<!-- <div class="timeline-body">
-									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div> -->
-							</div>
-						</li>
-			    	</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	
+    <!-- Contact Section -->
+    <section id="contact" class="section-contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Let's Connect</span>
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="section-underline"></div>
+        </div>
+        
+        <div class="contact-layout">
+          <!-- Contact Direct Details -->
+          <div class="contact-info-panel">
+            <h3>Contact Information</h3>
+            <p>I am open to discuss frontend lead opportunities, consulting, architecture advisory, or mentoring programs.</p>
+            
+            <div class="contact-methods">
+              <!-- Email -->
+              <div class="contact-item card-hover" id="copy-email-btn" data-clipboard="rajan.chavda1@gmail.com">
+                <div class="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">Email Me</span>
+                  <span class="contact-value">rajan.chavda1@gmail.com</span>
+                </div>
+                <div class="copy-hint" title="Copy to clipboard">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </div>
+              </div>
+              
+              <!-- Phone -->
+              <div class="contact-item card-hover" id="copy-phone-btn" data-clipboard="+919924509702">
+                <div class="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">Call / WhatsApp</span>
+                  <span class="contact-value">+91 9924509702</span>
+                </div>
+                <div class="copy-hint" title="Copy to clipboard">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </div>
+              </div>
+              
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com/in/rajan-chavda" target="_blank" class="contact-item card-hover text-link">
+                <div class="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-value">linkedin.com/in/rajan-chavda</span>
+                </div>
+                <div class="external-link-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+              </a>
+              
+              <!-- Location -->
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">Ahmedabad, Gujarat, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
 
-	<div id="fh5co-features" class="animate-box">
-		<div class="container">
-			<div class="services-padding">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Projects</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 text-center">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-paintbrush"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>ASENT</h3>
-								<p>A platform for a the non emergency services. I have integrated different charts, developed widgets, dashboard. Integrated web-sockets. While continuously following design guidelines and SEO</p>
-							</div>
-						</div>
-					</div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-					<div class="col-md-4 text-center">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-briefcase"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>ADAM 3.0</h3>
-								<p>A simulator to create scenarios for fire and medical state departments. I have created cutting edge design to development. Integrated ARCGis map, Created widgets with charts with drag and rearrange functionality.</p>
-							</div>
-						</div>
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#home" class="logo">Rajan<span>.dev</span></a>
+        <p>Crafting high-quality frontends with high-fidelity performance metrics.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+      </div>
+      <div class="footer-meta">
+        <p>&copy; 2026 Rajan Chavda. All rights reserved.</p>
+        <p class="footer-credits">Handcrafted with modern CSS &amp; vanilla JS.</p>
+      </div>
+    </div>
+  </footer>
 
-					</div>
-					<div class="col-md-4 text-center">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-search"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>IDHub</h3>
-								<p>Access management system. Created multi level dynamic forms, panels with validations.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
 
-
-				<div class="row">
-					<div class="col-md-4 text-center">
-
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-bargraph"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Job search platform</h3>
-								<p>Created a job search platform UI with React, Nextjs, React-query.</p>
-							</div>
-						</div>
-
-					</div>
-
-					<!-- <div class="col-md-4 text-center">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-genius"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Web Marketing</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-							</div>
-						</div>
-
-					</div>
-					<div class="col-md-4 text-center">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-chat"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Support</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-							</div>
-						</div>
-					</div> -->
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-skills" class="animate-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Skills</h2>
-				</div>
-			</div>
-			<div class="row row-pb-md">
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="95"><span><strong>Angular</strong>95%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="80"><span><strong>React</strong>80%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="90"><span><strong>CSS</strong>90%</span></div>
-				</div>
-
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="80"><span><strong>SEO</strong>80%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="50"><span><strong>NodeJS</strong>50%</span></div>
-				</div>
-				<!-- <div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="90"><span><strong>AngularJS</strong>90%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="85"><span><strong>Ruby</strong>85%</span></div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-					<div class="chart" data-percent="90"><span><strong>Java</strong>90%</span></div>
-				</div> -->
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="progress-wrap">
-						<h3><span class="name-left">HTML5/CSS3</span><span class="value-right">95%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%">
-						  </div>
-						</div>
-					</div>
-					<div class="progress-wrap">
-						<h3><span class="name-left">Tailwind</span><span class="value-right">90%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-2 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-						  </div>
-						</div>
-					</div>
-					<!-- <div class="progress-wrap">
-						<h3><span class="name-left">PHP</span><span class="value-right">80%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-3 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-						  </div>
-						</div>
-					</div> -->
-					<!-- <div class="progress-wrap">
-						<h3><span class="name-left">Java</span><span class="value-right">85%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-4 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
-						  </div>
-						</div>
-					</div> -->
-				</div>
-				<div class="col-md-6">
-					<div class="progress-wrap">
-						<h3><span class="name-left">SCRUM</span><span class="value-right">90%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-5 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-						  </div>
-						</div>
-					</div>
-					<div class="progress-wrap">
-						<h3><span class="name-left">Material UI</span><span class="value-right">80%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-striped active" role="progressbar"
-						  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-						  </div>
-						</div>
-					</div>
-					<!-- <div class="progress-wrap">
-						<h3><span class="name-left">Python</span><span class="value-right">85%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
-						  </div>
-						</div>
-					</div> -->
-					<!-- <div class="progress-wrap">
-						<h3><span class="name-left">jQuery</span><span class="value-right">75%</span></h3>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-3 progress-bar-striped active" role="progressbar"
-						  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
-						  </div>
-						</div>
-					</div> -->
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- <div id="fh5co-work" class="fh5co-bg-dark">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Work</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-1.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-2.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Brading</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-3.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-4.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Design</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-5.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Website</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-6.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-7.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Brading</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-3 text-center col-padding animate-box">
-					<a href="#" class="work" style="background-image: url(images/portfolio-8.jpg);">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- <div id="fh5co-blog">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Post on Medium</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/portfolio-1.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Mar. 15th 2016</span>
-							<h3><a href="#">Photoshoot On The Street</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>249</li>
-								<li><i class="icon-eye2"></i>308</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/portfolio-2.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Mar. 15th 2016</span>
-							<h3><a href="#">Surfing at Philippines</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>249</li>
-								<li><i class="icon-eye2"></i>308</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/portfolio-3.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Mar. 15th 2016</span>
-							<h3><a href="#">Capture Living On Uderwater</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>249</li>
-								<li><i class="icon-eye2"></i>308</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-	<div id="fh5co-started" class="fh5co-bg-dark">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Let's Connect!</h2>
-					<p>And create something interesting...</p>
-					<p><a href="mailto:rajan.chavda1@gmail.com" class="btn btn-default btn-lg">Contact</a></p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- <div id="fh5co-consult">
-		<div class="video fh5co-video" style="background-image: url(images/cover_bg_1.jpg);">
-			<div class="overlay"></div>
-		</div>
-		<div class="choose animate-box">
-			<h2>Contact</h2>
-			<form action="#">
-				<div class="row form-group">
-					<div class="col-md-6">
-						<input type="text" id="fname" class="form-control" placeholder="Your firstname">
-					</div>
-				</div>
-				<div class="row form-group">
-					<div class="col-md-6">
-						<input type="text" id="lname" class="form-control" placeholder="Your lastname">
-					</div>
-				</div>
-
-				<div class="row form-group">
-					<div class="col-md-12">
-						<input type="text" id="email" class="form-control" placeholder="Your email address">
-					</div>
-				</div>
-
-				<div class="row form-group">
-					<div class="col-md-12">
-						<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
-					</div>
-				</div>
-
-				<div class="row form-group">
-					<div class="col-md-12">
-						<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<input type="submit" value="Send Message" class="btn btn-primary">
-				</div>
-
-			</form>	
-		</div>
-	</div> -->
-
-	<!-- <div id="map" class="fh5co-map"></div>
-	</div> -->
-	
-	<!-- <div id="fh5co-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p>Designed by <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.com" target="_blank">Unsplash</a></p>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Easy PieChart -->
-	<script src="js/jquery.easypiechart.min.js"></script>
-	<!-- Google Map -->
-	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script> -->
-	<!-- <script src="js/google_map.js"></script> -->
-	
-	<!-- Main -->
-	<script src="js/main.js"></script>
-
-	</body>
+</body>
 </html>
-
