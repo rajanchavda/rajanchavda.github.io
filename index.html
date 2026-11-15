@@ -1,803 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Rajan Chavda, a Team Lead & Senior Frontend Engineer with 8+ years of experience building scalable web applications using Angular, React, Next.js, and Node.js.">
-  <meta name="author" content="Rajan Chavda">
-  <meta name="keywords" content="Rajan Chavda, Frontend Developer, Team Lead, Web Developer, Angular, React, NextJS, NodeJS, Ahmedabad, Portfolio">
-  
-  <title>Rajan Chavda | Team Lead - Frontend & Senior Software Engineer</title>
-  
-  <!-- Preconnect Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="index.css">
-  
-  <!-- Theme Color and FOUC Prevention Script -->
-  <meta name="color-scheme" content="dark">
-  <script>
-    (function() {
-      const theme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', theme);
-      const meta = document.querySelector('meta[name="color-scheme"]');
-      if (meta) meta.content = theme;
-    })();
-  </script>
-  
-  <!-- GSAP Core Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <!-- GSAP TextPlugin -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
-  <!-- GSAP ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  
-  <!-- JS Script (Deferred) -->
-  <script src="index.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Rajan Chavda, a Team Lead & Senior Frontend Engineer with 8+ years of experience building scalable web applications using Angular, React, Next.js, and Node.js.">
+<meta name="author" content="Rajan Chavda">
+<meta name="keywords" content="Rajan Chavda, Frontend Developer, Team Lead, Web Developer, Angular, React, NextJS, NodeJS, Ahmedabad, Portfolio">
+<title>Rajan Chavda | Team Lead - Frontend & Senior Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<link rel="stylesheet" href="index.css">
+<script src="index.js" defer></script>
 </head>
 <body>
 
-  <!-- Custom Interactive Cursor -->
-  <div class="custom-cursor" id="custom-cursor"></div>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Rajan Chavda<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle" id="toggle" aria-label="Toggle light/dark theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
 
-  <!-- Navigation Bar -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo" id="nav-logo">Rajan<span>.dev</span></a>
-      <nav class="nav-links" id="nav-links-menu">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#recent" class="nav-link">Recent Work</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#awards" class="nav-link">Awards</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-      <div class="nav-actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
-          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" id="mobile-toggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+<main id="top">
+  <!-- Hero -->
+  <div class="wrap hero">
+    <div class="hero-top">
+      <div>
+        <div class="status mono"><span class="dot"></span>Open to new opportunities · Remote, hybrid or relocation</div>
+        <h1>
+          <span class="line"><span>Frontend lead</span></span>
+          <span class="line"><span>building <em>calm,</em></span></span>
+          <span class="line"><span>fast interfaces.</span></span>
+        </h1>
+      </div>
+      <figure class="hero-art">
+        <img src="hero-illustration.svg" alt="Illustration of a developer sipping coffee at a laptop, surrounded by code mugs">
+      </figure>
+    </div>
+    <div class="hero-foot">
+      <p>I'm Rajan, a Team Lead and Senior Frontend Engineer with <span data-exp="short">8+</span> years of Angular, React and Next.js. I care about performance, accessibility and code a team can live with.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-solid">Selected work
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-line">Get in touch</a>
       </div>
     </div>
-  </header>
-
-  <!-- Parallax Hero Section -->
-  <section class="hero-parallax-wrapper" id="home">
-    <div class="hero-parallax">
-      <!-- Layer 1: Background Mesh & Grid (Moves slowest) -->
-      <div class="parallax-layer layer-bg" data-speed="0.1">
-        <div class="grid-mesh"></div>
-        <canvas id="hero-canvas"></canvas>
-      </div>
-      
-      <!-- Layer 2: Glowing Ambient Circles (Moves medium-slow) -->
-      <div class="parallax-layer layer-glow" data-speed="0.3">
-        <div class="glow-circle glow-cyan"></div>
-        <div class="glow-circle glow-purple"></div>
-      </div>
-      
-      <!-- Layer 3: Main Text Content & CTA (Moves at normal scroll rate) -->
-      <div class="parallax-layer layer-content" data-speed="0.5">
-        <div class="hero-text-container">
-          <div class="hero-badge">
-            <span class="pulse-dot"></span>
-            Available for Frontend Leadership Roles
-          </div>
-          <h1 class="hero-title">
-            Hi, I'm <span class="gradient-text">Rajan Chavda</span>
-          </h1>
-          <h2 class="hero-subtitle"><span id="rotating-subtitle">Team Lead & Senior Frontend Engineer</span><span class="cursor">|</span></h2>
-          <p class="hero-description">
-            Building high-performance, accessible, and scalable web applications with over <span data-exp="years">8</span> years of expertise. Specializing in advanced Angular, React, Next.js, and modern frontend architecture.
-          </p>
-          <div class="hero-buttons">
-            <a href="#projects" class="btn btn-glow">
-              <span>View Projects</span>
-            </a>
-            <a href="#contact" class="btn btn-secondary">
-              <span>Get In Touch</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 4: Foreground Floating Tech Elements (Moves faster) -->
-      <div class="parallax-layer layer-foreground" data-speed="0.8">
-        <div class="floating-tech-card tech-angular">
-          <svg viewBox="0 0 24 24" class="tech-icon"><path fill="#dd0031" d="M12 2L2 5.6v5.8c0 6.2 4.2 11.2 10 12.6 5.8-1.4 10-6.4 10-12.6V5.6L12 2zm0 3.3l5.5 12.2h-2.1l-1.3-3.3H9.9l-1.3 3.3H6.5L12 5.3zm1.6 7L12 8.7l-1.6 3.6h3.2z"/></svg>
-          <span>Angular 22</span>
-        </div>
-        <div class="floating-tech-card tech-react">
-          <svg viewBox="0 0 24 24" class="tech-icon"><path fill="#00d8ff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 11h-9c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h9c.28 0 .5.22.5.5s-.22.5-.5.5zm0-2h-9c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h9c.28 0 .5.22.5.5s-.22.5-.5.5z"/></svg>
-          <span>React & Next</span>
-        </div>
-        <div class="floating-tech-card tech-ts">
-          <svg viewBox="0 0 24 24" class="tech-icon"><path fill="#3178c6" d="M1.04 0h21.92c.57 0 1.04.47 1.04 1.04v21.92c0 .57-.47 1.04-1.04 1.04H1.04C.47 24 0 23.53 0 22.96V1.04C0 .47.47 0 1.04 0zm19.34 18.01c-.13-.3-.43-.5-.77-.5h-2.31c-.32 0-.6.18-.73.47l-.9 1.98h-2.92l3.41-7.14c.15-.31.47-.51.81-.51h2.46c.34 0 .66.2.81.51l3.41 7.14h-2.92l-.9-1.98zm-2.03-4.43l-1.09 2.4h2.18l-1.09-2.4zM4.1 6.54h8.34V8.9H9.42v10.51H6.9V8.9H4.1V6.54z"/></svg>
-          <span>TypeScript</span>
-        </div>
-      </div>
+    <div class="stats reveal">
+      <div class="stat"><b data-exp="short">8+</b><span class="mono">Years shipping</span></div>
+      <div class="stat"><b>50%</b><span class="mono">Runtime perf gain</span></div>
+      <div class="stat"><b>v10→22</b><span class="mono">Angular migration</span></div>
+      <div class="stat"><b>2</b><span class="mono">Industry awards</span></div>
     </div>
-    
-    <div class="hero-scroll-indicator">
-      <span class="scroll-mouse">
-        <span class="scroll-wheel"></span>
-      </span>
-      <span class="scroll-text">Scroll to explore</span>
+  </div>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="mono"><span>01</span> — About</span><h2>A little about me</h2></div>
+      <div class="about reveal">
+        <figure class="illo">
+          <img src="about-illustration.svg" alt="Illustration of a developer working at a laptop">
+          <figcaption class="mono">At the desk since 2018</figcaption>
+        </figure>
+        <div class="about-body">
+          <div class="about-text">
+            <p class="lede">I lead frontend teams through big migrations, offline-first PWAs and the slow, steady work of making apps feel <em>instant</em>.</p>
+            <p>Over <span data-exp="years">8</span> years I've built micro-frontend architectures, moved complex Angular platforms from v10 to v22, and cut LCP and INP by up to half.</p>
+            <p>I mentor developers, turn business needs into architecture, and set up the PR review and testing habits that keep a codebase healthy.</p>
+          </div>
+          <ul class="facts">
+            <li><span class="mono">Based in</span>Ahmedabad, Gujarat, India</li>
+            <li><span class="mono">Experience</span><span data-exp="full">8 years 4 months</span> (since July 2018)</li>
+            <li><span class="mono">Education</span>B.E. Computer Engineering, L.D. College of Engineering</li>
+            <li><span class="mono">Way of working</span>Agile Scrum, mentorship, high-standard reviews</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Main Content Area -->
-  <main>
-    
-    <!-- About Section -->
-    <section id="about" class="section-about">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Who I Am</span>
-          <h2 class="section-title">About Me</h2>
-          <div class="section-underline"></div>
-        </div>
-        
-        <div class="about-grid">
-          <!-- Left: Avatar Card -->
-          <div class="about-visual-col">
-            <div class="avatar-glass-card">
-              <div class="avatar-container">
-                <img src="profile_avatar.png" alt="Rajan Chavda Profile Avatar" class="avatar-image" loading="lazy">
-              </div>
-              <div class="avatar-info">
-                <h3>Rajan Chavda</h3>
-                <p>Team Lead - Frontend</p>
-                <div class="avatar-socials">
-                  <a href="https://linkedin.com/in/rajan-chavda" target="_blank" aria-label="LinkedIn Profile">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                  </a>
-                  <a href="https://github.com/rajanchavda" target="_blank" aria-label="GitHub Profile">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 17.13V21"></path></svg>
-                  </a>
-                  <a href="mailto:rajan.chavda1@gmail.com" aria-label="Email Contact">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Quick Highlight Cards -->
-            <div class="highlights-grid">
-              <div class="highlight-card">
-                <span class="highlight-number" data-exp="short">8+</span>
-                <span class="highlight-text">Years Experience</span>
-              </div>
-              <div class="highlight-card">
-                <span class="highlight-number">20+</span>
-                <span class="highlight-text">Apps Optimized</span>
-              </div>
-              <div class="highlight-card">
-                <span class="highlight-number">2</span>
-                <span class="highlight-text">Industry Awards</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Right: Biography & Overview -->
-          <div class="about-content-col">
-            <h3 class="about-greeting">Driving modern frontend architectures and high-performing development teams.</h3>
-            <p class="about-text">
-              I am a passionate <strong>Senior Software Engineer & Team Lead</strong> specializing in frontend technologies. Over the past <span data-exp="short">8+</span> years, I have engineered micro-frontend architectures, led major framework migrations (such as upgrading complex Angular platforms from v10 to v22), and delivered offline-first PWAs with automated syncing capabilities.
-            </p>
-            <p class="about-text">
-              My core philosophy centers around web performance (optimizing LCP/INP by up to 50%), solid search engine optimization (SEO), web accessibility (a11y), and clean, reusable codebases. I excel at mentoring developers, translating business requirements into tech architectures, and establishing robust PR review and testing practices.
-            </p>
-            
-            <div class="bio-details">
-              <div class="detail-item">
-                <span class="detail-label">Location:</span>
-                <span class="detail-val">Ahmedabad, Gujarat, India</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Experience:</span>
-                <span class="detail-val"><span data-exp="full">8 years 4 months</span> (since July 2018)</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Education:</span>
-                <span class="detail-val">B.E. Computer Engineering (L.D. College of Engineering)</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Management Style:</span>
-                <span class="detail-val">Agile Scrum, Technical Mentorship, High-Standards PRs</span>
-              </div>
-            </div>
-            
-            <div class="about-cta-container">
-              <a href="#experience" class="btn btn-secondary btn-icon">
-                <span>View My Journey</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Recent work -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="mono"><span>02</span> — Recent work</span><h2>Things I've built lately</h2></div>
+      <ul class="work reveal">
+        <li><a href="https://github.com/rajanchavda/readme" target="_blank" rel="noopener">
+          <span class="mono">01</span>
+          <div><h3>Readme</h3><span class="kind mono">macOS &amp; Windows app</span></div>
+          <div><p>A quiet EPUB reader. Two-page spreads that turn with a page curl, Paper, Sepia and Night themes, highlights and full-text search.</p><div class="tags"><span>Swift</span><span>EPUB</span><span>macOS</span></div></div>
+          <span class="mono yr">2026</span>
+          <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a></li>
+        <li><a href="https://freeplanningpoker.dpdns.org" target="_blank" rel="noopener">
+          <span class="mono">02</span>
+          <div><h3>Planning Poker</h3><span class="kind mono">Real-time web app</span></div>
+          <div><p>Pointing Jira stories with host-controlled reveals and instant consensus. Every room is a Durable Object pushing updates over WebSockets.</p><div class="tags"><span>Cloudflare Workers</span><span>Durable Objects</span><span>WebSockets</span></div></div>
+          <span class="mono yr">2026</span>
+          <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a></li>
+        <li><a href="https://github.com/rajanchavda/secret-manager" target="_blank" rel="noopener">
+          <span class="mono">03</span>
+          <div><h3>Secret Manager</h3><span class="kind mono">Developer tool</span></div>
+          <div><p>A Touch ID vault that keeps <code>.env</code> secrets away from AI coding agents. Encrypted at rest, injected straight into process memory.</p><div class="tags"><span>Swift</span><span>Keychain</span><span>AES-256-GCM</span></div></div>
+          <span class="mono yr">2026</span>
+          <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a></li>
+        <li><a href="https://github.com/rajanchavda/weather-widget" target="_blank" rel="noopener">
+          <span class="mono">04</span>
+          <div><h3>Weather Widget</h3><span class="kind mono">macOS menu bar app</span></div>
+          <div><p>Cinematic weather in the menu bar: layered rain, lightning, snow, night stars and aurora gradients, with a 12-hour forecast graph.</p><div class="tags"><span>SwiftUI</span><span>Open-Meteo</span><span>Animation</span></div></div>
+          <span class="mono yr">2026</span>
+          <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a></li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Recent Work Section -->
-    <section id="recent" class="section-recent">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Fresh Off The Keyboard</span>
-          <h2 class="section-title">Recent Work</h2>
-          <div class="section-underline"></div>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Recent 1: Readme -->
-          <div class="project-card reveal-on-scroll">
-            <div class="project-card-header">
-              <span class="project-badge">macOS &amp; Windows App</span>
-              <span class="project-date">2026</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">Readme</h3>
-              <p class="project-desc">
-                A quiet EPUB reader. Books open as a two-page spread that turns with a page curl, set in a proper book typeface. Paper, Sepia and Night themes, highlights, a page marker, full-text search, and it always reopens where you left off.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Swift</span>
-                <span class="tech-badge">macOS</span>
-                <span class="tech-badge">Windows</span>
-                <span class="tech-badge">EPUB</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/rajanchavda/readme" target="_blank" rel="noopener" class="project-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 17.13V21"></path></svg>
-                  <span>Source</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Recent 2: Planning Poker -->
-          <div class="project-card reveal-on-scroll">
-            <div class="project-card-header">
-              <span class="project-badge">Real-time Web App</span>
-              <span class="project-date">2026</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">Planning Poker</h3>
-              <p class="project-desc">
-                Real-time planning poker for agile teams pointing Jira stories. Host-controlled reveals, secret votes, and instant average &amp; consensus. Each room is a Cloudflare Durable Object pushing updates over WebSockets &mdash; no database, no API keys.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Cloudflare Workers</span>
-                <span class="tech-badge">Durable Objects</span>
-                <span class="tech-badge">WebSockets</span>
-                <span class="tech-badge">Jira</span>
-              </div>
-              <div class="project-links">
-                <a href="https://freeplanningpoker.dpdns.org" target="_blank" rel="noopener" class="project-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                  <span>Live App</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Recent 3: Secret Manager -->
-          <div class="project-card reveal-on-scroll">
-            <div class="project-card-header">
-              <span class="project-badge">Developer Tool</span>
-              <span class="project-date">2026</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">Secret Manager</h3>
-              <p class="project-desc">
-                A Touch ID secret vault for macOS that shields <code>.env</code> files from AI coding agents. Secrets stay encrypted on disk with a Keychain-backed key and are injected straight into process memory, so plaintext never touches the disk during development.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Swift</span>
-                <span class="tech-badge">Touch ID</span>
-                <span class="tech-badge">Keychain</span>
-                <span class="tech-badge">AES-256-GCM</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/rajanchavda/secret-manager" target="_blank" rel="noopener" class="project-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 17.13V21"></path></svg>
-                  <span>Source</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=qiUF7saxiaE" target="_blank" rel="noopener" class="project-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                  <span>Demo</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Recent 4: Weather Widget -->
-          <div class="project-card reveal-on-scroll">
-            <div class="project-card-header">
-              <span class="project-badge">macOS Menu Bar App</span>
-              <span class="project-date">2026</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">Weather Widget</h3>
-              <p class="project-desc">
-                A macOS menu bar weather app with cinematic animations: layered rain, lightning, snowfall, twinkling night stars and weather-responsive aurora gradients, plus saved locations and a 12-hour temperature forecast graph.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Swift</span>
-                <span class="tech-badge">SwiftUI</span>
-                <span class="tech-badge">Open-Meteo</span>
-                <span class="tech-badge">Animations</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/rajanchavda/weather-widget" target="_blank" rel="noopener" class="project-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 17.13V21"></path></svg>
-                  <span>Source</span>
-                </a>
-              </div>
-            </div>
+  <!-- Experience -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="mono"><span>03</span> — Experience</span><h2>Where I've worked</h2></div>
+      <div class="exp">
+        <div class="role reveal">
+          <span class="mono">Nov 2023 — Present</span>
+          <div>
+            <h3>Team Lead</h3><span class="co">ARInspect (Tyler Technologies) · Hybrid</span>
+            <ul>
+              <li>Lead a multi-tenant inspection platform on Angular and Node.js.</li>
+              <li>Drove the Angular v10 → v22 upgrade and cut initial load time.</li>
+              <li>Improved runtime performance by 50% through RxJS and rendering work.</li>
+              <li>Shipped an offline-first PWA with secure background sync.</li>
+              <li>Built local LLM agent workflows on custom MCP servers and n8n.</li>
+              <li>Mentor frontend engineers and run the team's review standards.</li>
+            </ul>
           </div>
         </div>
-
-        <div class="recent-more">
-          <a href="https://github.com/rajanchavda" target="_blank" rel="noopener" class="btn btn-secondary">
-            <span>More on GitHub</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section-experience">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Professional Path</span>
-          <h2 class="section-title">Work Experience</h2>
-          <div class="section-underline"></div>
-        </div>
-        
-        <div class="timeline">
-          <!-- Experience Item 1 -->
-          <div class="timeline-item reveal-on-scroll">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Nov 2023 – Present</div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <h3>Team Lead</h3>
-                <span class="timeline-company">ARInspect (Tyler Technologies)</span>
-              </div>
-              <span class="timeline-location">Ahmedabad, Gujarat (Hybrid)</span>
-              <ul class="timeline-bullets">
-                <li>Led development of a high-concurrency multi-tenant inspection platform using Angular and Node.js.</li>
-                <li>Orchestrated framework upgrades from Angular v10 to v22, achieving significant gains in codebase maintainability and reducing initial load time.</li>
-                <li>Improved runtime application performance by 50% via optimized reactive logic (RxJS) and component rendering structures.</li>
-                <li>Designed and implemented an offline-first Progressive Web App (PWA) equipped with secure auto-syncing background tasks.</li>
-                <li>Established strict peer code reviews, CI linting, and automated unit testing to minimize production defects.</li>
-                <li>Architected secure, local LLM agent workflows using custom MCP (Model Context Protocol) servers integrated with n8n.</li>
-                <li>Mentored junior frontend developers, facilitating career path growth and aligning engineering goals with product scope.</li>
-              </ul>
-            </div>
-          </div>
-          
-          <!-- Experience Item 2 -->
-          <div class="timeline-item reveal-on-scroll">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Jan 2020 – Oct 2023</div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <h3>Sr. Software Developer</h3>
-                <span class="timeline-company">Aubergine Solutions</span>
-              </div>
-              <span class="timeline-location">Ahmedabad, Gujarat, India</span>
-              <ul class="timeline-bullets">
-                <li>Served as frontend architect for several large-scale Angular client applications.</li>
-                <li>Scouted and estimated complex user stories, helping project managers establish precise roadmap milestones.</li>
-                <li>Engineered scalable, themeable UI component libraries utilizing Angular, RxJS, and clean SCSS methodologies.</li>
-                <li>Enforced modern SEO standards, web accessibility guidelines (WCAG), and bundle size optimization strategies.</li>
-                <li>Delivered high-priority user stories consistently within fast-paced 2-week Agile Scrum sprints.</li>
-              </ul>
-            </div>
-          </div>
-          
-          <!-- Experience Item 3 -->
-          <div class="timeline-item reveal-on-scroll">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Jul 2018 – Jan 2020</div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <h3>Software Engineer</h3>
-                <span class="timeline-company">Future Group</span>
-              </div>
-              <span class="timeline-location">Ahmedabad, Gujarat, India</span>
-              <ul class="timeline-bullets">
-                <li>Developed internal web utilities and automation scripting tools for web and mobile platforms.</li>
-                <li>Conducted load and API performance testing leveraging JMeter to isolate latency bottlenecks.</li>
-                <li>Wrote extensive test coverages, elevating frontend testing suites and app stability margins.</li>
-              </ul>
-            </div>
+        <div class="role reveal">
+          <span class="mono">Jan 2020 — Oct 2023</span>
+          <div>
+            <h3>Sr. Software Developer</h3><span class="co">Aubergine Solutions</span>
+            <ul>
+              <li>Frontend architect for several large Angular client apps.</li>
+              <li>Built themeable UI component libraries with RxJS and SCSS.</li>
+              <li>Owned SEO, WCAG accessibility and bundle-size budgets.</li>
+              <li>Estimated complex stories to set realistic roadmap milestones.</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section-projects">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Portfolio Highlights</span>
-          <h2 class="section-title">Featured Projects</h2>
-          <div class="section-underline"></div>
-        </div>
-        
-        <!-- Filter Controls -->
-        <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">All Projects</button>
-          <button class="filter-btn" data-filter="angular">Angular</button>
-          <button class="filter-btn" data-filter="react">React / Next</button>
-          <button class="filter-btn" data-filter="node">Fullstack / Node</button>
-        </div>
-        
-        <div class="projects-grid">
-          <!-- Project 1: Motorbuddy -->
-          <div class="project-card reveal-on-scroll" data-tech="react node">
-            <div class="project-card-header">
-              <span class="project-badge">Founder / Solo Dev</span>
-              <span class="project-date">2025 - Present</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">Motorbuddy</h3>
-              <p class="project-desc">
-                A modern vehicle management platform designed to monitor car services, maintenance alerts, mileage logging, and ownership expenses. Integrated family vehicle sharing, notification tasks, and an interactive AI assistant.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Next.js</span>
-                <span class="tech-badge">Node.js</span>
-                <span class="tech-badge">PostgreSQL</span>
-                <span class="tech-badge">GCP</span>
-                <span class="tech-badge">Express</span>
-                <span class="tech-badge">AI Assistant</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Project 2: ARInspect Platform -->
-          <div class="project-card reveal-on-scroll" data-tech="angular node">
-            <div class="project-card-header">
-              <span class="project-badge">Lead Developer</span>
-              <span class="project-date">2023 - Present</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">ARInspect</h3>
-              <p class="project-desc">
-                A enterprise-grade inspection platform that runs offline-first for field inspectors. Features smart synchronizing, real-time dispatch, spatial data maps, and strict performance targets.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Angular 22</span>
-                <span class="tech-badge">TypeScript</span>
-                <span class="tech-badge">RxJS</span>
-                <span class="tech-badge">Node.js</span>
-                <span class="tech-badge">PWA</span>
-                <span class="tech-badge">Material UI</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Project 3: Emergency Incident Simulator -->
-          <div class="project-card reveal-on-scroll" data-tech="angular">
-            <div class="project-card-header">
-              <span class="project-badge">Lead Frontend</span>
-              <span class="project-date">2021 - 2023</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">Emergency Incident Simulator</h3>
-              <p class="project-desc">
-                A real-time geospatial emergency simulation dashboard handling huge datasets. Includes client-side PDF export, dynamic charting widgets, and low-latency SignalR event sockets.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Angular 14</span>
-                <span class="tech-badge">ArcGIS Maps</span>
-                <span class="tech-badge">ApexCharts</span>
-                <span class="tech-badge">SignalR</span>
-                <span class="tech-badge">WebSockets</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Project 4: Freshment -->
-          <div class="project-card reveal-on-scroll" data-tech="react">
-            <div class="project-card-header">
-              <span class="project-badge">Frontend Dev</span>
-              <span class="project-date">2022 - 2023</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">Freshment</h3>
-              <p class="project-desc">
-                A performance-focused job search portal optimized for quick response times and SEO visibility. Features pre-fetched query states and state caching for slick user navigations.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">React</span>
-                <span class="tech-badge">NextJS</span>
-                <span class="tech-badge">React Query</span>
-                <span class="tech-badge">TailwindCSS</span>
-                <span class="tech-badge">TypeScript</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Project 5: IDHub -->
-          <div class="project-card reveal-on-scroll" data-tech="angular">
-            <div class="project-card-header">
-              <span class="project-badge">Frontend Dev</span>
-              <span class="project-date">2020 - 2021</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-title">IDHub</h3>
-              <p class="project-desc">
-                An advanced web form builder application allowing non-tech users to configure complex document flows, conditional logical queries, and multi-step custom wizard screens.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Angular 8</span>
-                <span class="tech-badge">TypeScript</span>
-                <span class="tech-badge">Bootstrap</span>
-                <span class="tech-badge">Material UI</span>
-                <span class="tech-badge">Reactive Forms</span>
-              </div>
-            </div>
+        <div class="role reveal">
+          <span class="mono">Jul 2018 — Jan 2020</span>
+          <div>
+            <h3>Software Engineer</h3><span class="co">Future Group</span>
+            <ul>
+              <li>Built internal web utilities and automation tools.</li>
+              <li>Load-tested APIs with JMeter to find latency bottlenecks.</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section-skills">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">My Toolbox</span>
-          <h2 class="section-title">Technical Expertise</h2>
-          <div class="section-underline"></div>
-        </div>
-        
-        <div class="skills-grid">
-          <!-- Card 1: Frontend Technologies -->
-          <div class="skills-category-card">
-            <div class="category-icon-wrapper">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-            </div>
-            <h3>Front End</h3>
-            <div class="skills-list">
-              <div class="skill-tag">Angular 2+ / 22</div>
-              <div class="skill-tag">React / Next.js</div>
-              <div class="skill-tag">TypeScript</div>
-              <div class="skill-tag">RxJS</div>
-              <div class="skill-tag">Redux / State Mgmt</div>
-              <div class="skill-tag">PWA (Offline-First)</div>
-              <div class="skill-tag">HTML5 & CSS3 / SCSS</div>
-              <div class="skill-tag">Responsive Web Design</div>
-              <div class="skill-tag">SSR (Server-Side Render)</div>
-              <div class="skill-tag">SEO & Performance (LCP)</div>
-            </div>
-          </div>
-          
-          <!-- Card 2: Backend & Cloud -->
-          <div class="skills-category-card">
-            <div class="category-icon-wrapper">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V12C3 13.66 7.03 15 12 15C16.97 15 21 13.66 21 12V5"></path><path d="M3 12V19C3 20.66 7.03 22 12 22C16.97 22 21 20.66 21 19V12"></path></svg>
-            </div>
-            <h3>Backend & Cloud</h3>
-            <div class="skills-list">
-              <div class="skill-tag">NodeJS / Express</div>
-              <div class="skill-tag">Microservices</div>
-              <div class="skill-tag">AWS (EC2, S3, VPC)</div>
-              <div class="skill-tag">AWS CDN / CloudFront</div>
-              <div class="skill-tag">AWS CloudWatch</div>
-              <div class="skill-tag">MongoDB</div>
-              <div class="skill-tag">PostgreSQL</div>
-              <div class="skill-tag">MySQL</div>
-              <div class="skill-tag">GCP (Google Cloud)</div>
-            </div>
-          </div>
-          
-          <!-- Card 3: Library Integrations & Management -->
-          <div class="skills-category-card">
-            <div class="category-icon-wrapper">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-            </div>
-            <h3>Libraries & Methodologies</h3>
-            <div class="skills-list">
-              <div class="skill-tag">ArcGIS Maps</div>
-              <div class="skill-tag">Apex Charts & Chart.js</div>
-              <div class="skill-tag">FullCalendar</div>
-              <div class="skill-tag">SignalR (Websockets)</div>
-              <div class="skill-tag">Material UI / Bootstrap</div>
-              <div class="skill-tag">JQuery</div>
-              <div class="skill-tag">Scrum / Agile Lead</div>
-              <div class="skill-tag">Jira / Project Tracking</div>
-              <div class="skill-tag">Git / PR Workflows</div>
-              <div class="skill-tag">Unit Testing</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Awards & Certificates Section -->
-    <section id="awards" class="section-awards">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Recognitions</span>
-          <h2 class="section-title">Awards & Certifications</h2>
-          <div class="section-underline"></div>
-        </div>
-        
-        <div class="awards-grid">
-          <!-- Award 1 -->
-          <div class="award-card reveal-on-scroll">
-            <div class="award-icon-wrapper">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <h3>Prodigy Award</h3>
-            <span class="award-org">ARInspect (Tyler Technologies)</span>
-            <span class="award-date">Feb 2024</span>
-            <p>Conferred for outstanding dedication, technical leadership, and driving major frontend performance milestones.</p>
-          </div>
-          
-          <!-- Award 2 -->
-          <div class="award-card reveal-on-scroll">
-            <div class="award-icon-wrapper">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <h3>Excellerator</h3>
-            <span class="award-org">Aubergine Solutions</span>
-            <span class="award-date">2022</span>
-            <p>Awarded in recognition of excellent team contribution, project delivery excellence, and mentoring standardizations.</p>
-          </div>
-          
-          <!-- Certificate 1 -->
-          <div class="award-card reveal-on-scroll">
-            <div class="award-icon-wrapper">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            </div>
-            <h3>Scrum Master (PSM-I)</h3>
-            <span class="award-org">Scrum.org</span>
-            <span class="award-date">Professional Certification</span>
-            <p>Demonstrated mastery of the Scrum framework, Agile values, and collaborative product release management.</p>
-          </div>
-          
-          <!-- Certificate 2 -->
-          <div class="award-card reveal-on-scroll">
-            <div class="award-icon-wrapper">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            </div>
-            <h3>AWS Cloud Practitioner</h3>
-            <span class="award-org">Amazon Web Services (AWS)</span>
-            <span class="award-date">AWS Essentials Certification</span>
-            <p>Certified in AWS cloud concepts, security compliance, architecture designs, billing services, and core compute engines.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section-contact">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Let's Connect</span>
-          <h2 class="section-title">Get In Touch</h2>
-          <div class="section-underline"></div>
-        </div>
-        
-        <div class="contact-layout">
-          <!-- Contact Direct Details -->
-          <div class="contact-info-panel">
-            <h3>Contact Information</h3>
-            <p>I am open to discuss frontend lead opportunities, consulting, architecture advisory, or mentoring programs.</p>
-            
-            <div class="contact-methods">
-              <!-- Email -->
-              <div class="contact-item card-hover" id="copy-email-btn" data-clipboard="rajan.chavda1@gmail.com">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                </div>
-                <div class="contact-details">
-                  <span class="contact-label">Email Me</span>
-                  <span class="contact-value">rajan.chavda1@gmail.com</span>
-                </div>
-                <div class="copy-hint" title="Copy to clipboard">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                </div>
-              </div>
-              
-              <!-- Phone -->
-              <div class="contact-item card-hover" id="copy-phone-btn" data-clipboard="+919924509702">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                </div>
-                <div class="contact-details">
-                  <span class="contact-label">Call / WhatsApp</span>
-                  <span class="contact-value">+91 9924509702</span>
-                </div>
-                <div class="copy-hint" title="Copy to clipboard">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                </div>
-              </div>
-              
-              <!-- LinkedIn -->
-              <a href="https://linkedin.com/in/rajan-chavda" target="_blank" class="contact-item card-hover text-link">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </div>
-                <div class="contact-details">
-                  <span class="contact-label">LinkedIn</span>
-                  <span class="contact-value">linkedin.com/in/rajan-chavda</span>
-                </div>
-                <div class="external-link-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </div>
-              </a>
-              
-              <!-- Location -->
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                </div>
-                <div class="contact-details">
-                  <span class="contact-label">Location</span>
-                  <span class="contact-value">Ahmedabad, Gujarat, India</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <a href="#home" class="logo">Rajan<span>.dev</span></a>
-        <p>Crafting high-quality frontends with high-fidelity performance metrics.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Navigation</h4>
-        <a href="#about">About</a>
-        <a href="#recent">Recent Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-      </div>
-      <div class="footer-meta">
-        <p>&copy; 2026 Rajan Chavda. All rights reserved.</p>
-        <p class="footer-credits">Handcrafted with modern CSS &amp; vanilla JS.</p>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- Toast Notification Container -->
-  <div class="toast-container" id="toast-container"></div>
+  <!-- Client projects -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="mono"><span>04</span> — Client &amp; product work</span><h2>Selected projects</h2></div>
+      <div class="grid-2 reveal">
+        <article class="card"><div class="card-top"><span class="mono">Founder · Solo dev</span><span class="mono">2025 —</span></div>
+          <h3>Motorbuddy</h3><p>Vehicle management for families: service reminders, mileage, expenses and an AI assistant.</p>
+          <div class="tags"><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>GCP</span></div></article>
+        <article class="card"><div class="card-top"><span class="mono">Lead developer</span><span class="mono">2023 —</span></div>
+          <h3>ARInspect</h3><p>Offline-first inspection platform for field teams, with smart sync, dispatch and spatial maps.</p>
+          <div class="tags"><span>Angular 22</span><span>RxJS</span><span>PWA</span></div></article>
+        <article class="card"><div class="card-top"><span class="mono">Lead frontend</span><span class="mono">2021 — 23</span></div>
+          <h3>Emergency Incident Simulator</h3><p>Real-time geospatial simulation dashboard over large datasets, with SignalR events and PDF export.</p>
+          <div class="tags"><span>Angular</span><span>ArcGIS</span><span>SignalR</span></div></article>
+        <article class="card"><div class="card-top"><span class="mono">Frontend dev</span><span class="mono">2022 — 23</span></div>
+          <h3>Freshment</h3><p>A fast, SEO-friendly job portal with prefetched queries and cached state for instant navigation.</p>
+          <div class="tags"><span>Next.js</span><span>React Query</span><span>Tailwind</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="mono"><span>05</span> — Toolbox</span><h2>What I work with</h2></div>
+      <div class="skills reveal">
+        <div><h3>Frontend</h3><ul>
+          <li>Angular <span>2 → 22</span></li><li>React / Next.js <span>SSR</span></li><li>TypeScript</li><li>RxJS &amp; state management</li><li>PWA <span>offline-first</span></li><li>Performance &amp; SEO <span>LCP · INP</span></li>
+        </ul></div>
+        <div><h3>Backend &amp; Cloud</h3><ul>
+          <li>Node.js / Express</li><li>Microservices</li><li>AWS <span>EC2 · S3 · CloudFront</span></li><li>GCP</li><li>PostgreSQL · MongoDB · MySQL</li><li>Cloudflare Workers</li>
+        </ul></div>
+        <div><h3>Practice</h3><ul>
+          <li>Scrum / Agile lead <span>PSM-I</span></li><li>PR review culture</li><li>Unit testing</li><li>ArcGIS · ApexCharts</li><li>SignalR / WebSockets</li><li>MCP &amp; LLM tooling</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="mono"><span>06</span> — Recognition</span><h2>Awards &amp; certifications</h2></div>
+      <div class="awards reveal">
+        <div class="award"><span class="mono">Feb 2024</span><h3>Prodigy Award<small>ARInspect (Tyler Technologies)</small></h3><p>For technical leadership and major frontend performance milestones.</p></div>
+        <div class="award"><span class="mono">2022</span><h3>Excellerator<small>Aubergine Solutions</small></h3><p>For team contribution, delivery excellence and mentoring.</p></div>
+        <div class="award"><span class="mono">Certification</span><h3>Professional Scrum Master I<small>Scrum.org</small></h3><p>Scrum framework, Agile values and release management.</p></div>
+        <div class="award"><span class="mono">Certification</span><h3>AWS Cloud Practitioner<small>Amazon Web Services</small></h3><p>Cloud concepts, security, architecture and billing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <div class="contact" id="contact">
+    <div class="wrap">
+      <span class="mono">07 — Contact</span>
+      <h2>Let's build something <em>calm</em> &amp; fast.</h2>
+      <div class="mail">
+        <a href="mailto:rajan.chavda1@gmail.com">rajan.chavda1@gmail.com</a>
+        <button class="copy" id="copy">Copy</button>
+      </div>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/rajan-chavda" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/rajanchavda" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div class="foot mono"><span>© 2026 Rajan Chavda</span><span>Handcrafted with HTML, CSS &amp; a little JS</span></div>
+    </div>
+  </div>
+</main>
 
 </body>
 </html>
