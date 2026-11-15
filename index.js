@@ -1,5 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-  
+
+  /* ==========================================================================
+     EXPERIENCE (computed from career start so it never goes stale)
+     ========================================================================== */
+  (() => {
+    const CAREER_START = new Date(2018, 6, 1); // July 2018 (months are 0-indexed)
+    const now = new Date();
+    const totalMonths = Math.max(0,
+      (now.getFullYear() - CAREER_START.getFullYear()) * 12 + (now.getMonth() - CAREER_START.getMonth()));
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+    const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+
+    const values = {
+      years: String(years),                                   // "8"
+      short: `${years}${months > 0 ? '+' : ''}`,              // "8+"
+      full: plural(years, 'year') + (months > 0 ? ` ${plural(months, 'month')}` : '') // "8 years 4 months"
+    };
+
+    document.querySelectorAll('[data-exp]').forEach(el => {
+      const value = values[el.getAttribute('data-exp')];
+      if (value) el.textContent = value;
+    });
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.content = metaDesc.content.replace(/\d+\+ years/, `${values.short} years`);
+  })();
+
   /* ==========================================================================
      NAVBAR SCROLL EFFECT
      ========================================================================== */
@@ -167,7 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
      PROJECTS FILTERING
      ========================================================================== */
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
+  // Scoped to Featured Projects so the filter never hides Recent Work cards
+  const projectCards = document.querySelectorAll('#projects .project-card');
   
   filterBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
